@@ -16,4 +16,13 @@ spec:
     spec:
       containers:
       - name: echoscript
-        image: surajd/echoscript
+        image: fedora:32
+        command: ["/bin/bash"]
+        args: ["/scripts-dir/run.sh"]
+        volumeMounts:
+        - name: scripts-vol
+          mountPath: /scripts-dir
+      volumes:
+      - name: scripts-vol
+        configMap:
+          name: scripts-configmap
