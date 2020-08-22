@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echoscript
+  labels:
+    app: echoscript
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echoscript
+  template:
+    metadata:
+      labels:
+        app: echoscript
+    spec:
+      containers:
+      - name: echoscript
+        image: surajd/echoscript
